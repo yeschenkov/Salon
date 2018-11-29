@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "SalonApp",
+    "username": "salonapp",
     "password": "WordPass",
     "database": "salon_database",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "SalonApp",
+    "username": "salonapp",
     "password": "WordPass",
     "database": "salon_database",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "SalonApp",
+    "username": "salonapp",
     "password": "WordPass",
     "database": "salon_database",
     "host": "127.0.0.1",
