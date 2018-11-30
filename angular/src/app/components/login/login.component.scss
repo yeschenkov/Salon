@@ -1,0 +1,23 @@
+mat-card {
+	max-width: 300px;
+	margin: 0 auto;
+	top: 20vh;
+}
+mat-card-title {
+	text-align: center;
+}
+mat-form-field {
+	width: 85%;
+	display: block;
+	margin: 0 auto;
+}
+mat-card-actions {
+	text-align: center;
+}
+a {
+	color: #009688;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}

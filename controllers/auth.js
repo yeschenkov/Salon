@@ -4,7 +4,6 @@ var db = require("../models");
 
 module.exports.register = function (req, res) {
 	const user = {};
-	console.log("ok");
 	user.Name = req.body.name;
 	user.Phone = req.body.phone;
 	user.Password = req.body.password;
@@ -50,9 +49,14 @@ function generateJwt(user) {
 	const payload = {
 		phone: user.Phone,
 		id: user.Id,
-		roleId: user.RoleId,
+		name: user.Name,
 		time: new Date()
 	};
+	if (user.Role) {
+		payload.roleName = user.Role.Name;
+	} else {
+		payload.roleName = null;
+	}
 	var token = jwt.sign(payload, 'MY_SECRET', {
 		expiresIn: 3600 * 24 * 7
 	});

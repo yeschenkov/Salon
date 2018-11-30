@@ -1,0 +1,30 @@
+<mat-sidenav-container class="example-sidenav-container">
+	<mat-sidenav #snav mode="side" position="start">
+
+		<div class="modal-header row no-gutters">
+			<img src="assets/photo.png" class="photo">
+			<div class="col-12 sidebar-header-wrapper">
+				<div class="modal-title info-header" id="myModalLabel">{{ name }}</div>
+				<div class="info-secondary">{{ role }}</div>
+			</div>
+		</div>
+		<mat-nav-list>
+			<mat-list-item *ngFor="let item of menuItems" [routerLink]="[item.link]" routerLinkActive="active" >
+				<mat-icon matListIcon>{{item.icon}}</mat-icon>
+				{{ item.title }}
+			</mat-list-item>
+			<mat-list-item class="menu__exit" (click)="logout()">
+				<mat-icon matListIcon>exit_to_app</mat-icon>
+				Выход
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button mat-icon-button (click)="snav.toggle()">
+				<mat-icon>menu</mat-icon>
+			</button>
+		</mat-toolbar>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
