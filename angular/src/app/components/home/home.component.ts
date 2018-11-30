@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -12,7 +12,10 @@ export class HomeComponent implements OnInit {
 	public menuItems = [];
 	public role: string;
 	public name: string;
-	constructor(private auth: AuthenticationService, private router: Router) { }
+	public title: string;
+
+	constructor(private auth: AuthenticationService, private router: Router, private route: ActivatedRoute) {
+	}
 
 	ngOnInit() {
 		const userDetails = this.auth.getUserDetails();
@@ -31,12 +34,26 @@ export class HomeComponent implements OnInit {
 				this.role = 'Мастер';
 				break;
 		}
+
+		this.title = this.getPageTitle();
+		this.router.events.subscribe(() => {
+			this.title = this.getPageTitle();
+		});
 	}
 
 	public logout() {
 		this.auth.logout();
 		this.router.navigate(['/login']);
 	}
+
+	private getPageTitle() {
+		if (this.menuItems.length) {
+			const activeItem = this.menuItems.find(el => el['link'] === this.router.url);
+			return activeItem['title'];
+		}
+		return '';
+	}
+
 }
 
 const adminMenu = [

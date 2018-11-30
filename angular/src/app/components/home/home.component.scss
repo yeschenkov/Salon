@@ -4,6 +4,11 @@ mat-nav-list mat-icon {
 mat-sidenav {
 	width: 350px;
 }
+mat-toolbar {
+	span {
+		margin-left: 50px;
+	}
+}
 .example-sidenav-container {
 	position: absolute;
 	top: 0;
@@ -20,26 +25,6 @@ mat-sidenav {
 	bottom: 0;
 }
 
-.modal.left .modal-dialog{
-	position: fixed;
-	margin: auto;
-	width: 350px;
-	height: 100%;
-	-webkit-transform: translate3d(0%, 0, 0);
-	-ms-transform: translate3d(0%, 0, 0);
-	-o-transform: translate3d(0%, 0, 0);
-	transform: translate3d(0%, 0, 0);
-}
-
-
-.modal.left .modal-header{
-	padding: 40px 0 29px 31px;
-}
-
-.modal.left .modal-body{
-	padding: 24px;
-}
-
 /*Left*/
 
 
@@ -51,27 +36,7 @@ mat-sidenav {
 	position: relative;
 	margin-top: 21px;
 }
-.sidebar-header-wrapper > div{
-	margin: 0;
-}
-.sidebar-nav-item{
-	height: 50px;
-	border-radius: 5px;
-	display: flex;
-	align-items: center;
-}
-.sidebar-nav-item.active{
-	background: #e6e6e6;
-}
-.exit{
-	position: absolute;
-	bottom: 24px;
-}
 
-.photo-settings{
-	width: auto;
-	height: 100px;
-}
 .info-header{
 	color: rgba(0, 0, 0, 1);
 
