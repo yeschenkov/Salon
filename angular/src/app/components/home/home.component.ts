@@ -49,7 +49,9 @@ export class HomeComponent implements OnInit {
 	private getPageTitle() {
 		if (this.menuItems.length) {
 			const activeItem = this.menuItems.find(el => el['link'] === this.router.url);
-			return activeItem['title'];
+			if (activeItem) {
+				return activeItem['title'];
+			}
 		}
 		return '';
 	}
