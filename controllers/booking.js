@@ -18,7 +18,7 @@ module.exports = {
 				}];
 			}
 			return Booking
-				.findAll()
+				.findAll(filter)
 				.then((bookings) => res.status(200).send(bookings))
 				.catch((error) => { res.status(400).send(error); });
 		}
