@@ -1,3 +1,20 @@
-<p>
-  masters works!
-</p>
+<main class="row appointment-grid no-gutters">
+	<div class="col-md-6 offset-md-3">
+		<button mat-stroked-button color="primary" class="button-add width-full" (click)="openDialog()">
+			+ Добавить мастера</button>
+		<mat-card *ngFor="let master of (masters | async)">
+			<div class="media">
+				<img class="align-self-start" src="assets/image-placeholder.png">
+				<div class="media-body">
+					<div class="info-header">{{master['User'].Name }}: {{ master.Name}}</div>
+					<div class="info-secondary">{{master['User'].Phone }}</div>
+				</div>
+			</div>
+			<hr>
+			<div>
+				<button mat-button color="primary" class="button-custom button-action" (click)="openDialog(master)">Изменить</button>
+				<button mat-button color="primary" class="button-custom button-action" (click)="deleteMaster(master)">Отменить</button>
+			</div>
+		</mat-card>
+	</div>
+</main>

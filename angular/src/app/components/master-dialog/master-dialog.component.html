@@ -1,0 +1,30 @@
+
+	<div class="modal-header row">
+		<div class="col text-center create-title">Выберите пользователя-мастера</div>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<mat-form-field>
+				<mat-select placeholder="Выберите пользователя" [(ngModel)]="master.UserId">
+					<mat-option *ngFor="let user of (users | async)" [value]="user.Id"> {{ user.Name }}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div class="row radio-header">
+			<div class="col-12 text-center create-title">Квалификация мастера</div>
+		</div>
+		<div class="row">
+			<mat-form-field>
+				<input matInput type="text" placeholder="Название процедуры" [(ngModel)]="master.Name">
+			</mat-form-field>
+		</div>
+		<div class="row">
+			<mat-form-field>
+				<input matInput type="number" min="0" max="24" step="0.5" placeholder="Длительность процедуры" [(ngModel)]="master.Duration">
+			</mat-form-field>
+		</div>
+		<mat-dialog-actions>
+			<button mat-button color="primary" class="button-custom button-action" (click)="save()">Сохранить</button>
+			<button mat-button color="primary" class="button-custom button-action" (click)="close()">Отменить</button>
+		</mat-dialog-actions>
+	</div>

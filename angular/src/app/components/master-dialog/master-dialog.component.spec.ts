@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MastersComponent } from './masters.component';
+import { MasterDialogComponent } from './master-dialog.component';
 
-describe('MastersComponent', () => {
-	let component: MastersComponent;
-	let fixture: ComponentFixture<MastersComponent>;
+describe('MasterDialogComponent', () => {
+	let component: MasterDialogComponent;
+	let fixture: ComponentFixture<MasterDialogComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [MastersComponent]
+			declarations: [MasterDialogComponent]
 		})
 			.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(MastersComponent);
+		fixture = TestBed.createComponent(MasterDialogComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

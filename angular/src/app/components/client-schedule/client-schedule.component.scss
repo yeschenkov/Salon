@@ -1,5 +1,19 @@
+main {
+	overflow: auto;
+}
 .appointment-grid{
 	padding: 20px;
+}
+.appointment{
+	background: #FAFAFA;
+	border-radius: 4px 4px 4px 4px;
+	border: 1px solid #dadada;;
+	margin-bottom: 20px;
+	padding: 16px;
+	img {
+		width: 75px;
+		border-radius: 50px;
+	}
 }
 
 .button-add{
@@ -7,9 +21,7 @@
 	font-size: 20px;
 	margin-bottom: 20px;
 }
-mat-card {
-	margin-bottom: 20px;
-}
+
 .width-full{
 	width: 100%;
 }

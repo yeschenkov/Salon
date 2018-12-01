@@ -9,6 +9,9 @@ import {
 	MatIconModule,
 	MatCardModule,
 	MatInputModule,
+	MatDialogModule,
+	MatSelectModule,
+	MatFormFieldModule,
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +23,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { MastersComponent } from './components/masters/masters.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AdminScheduleComponent } from './components/admin-schedule/admin-schedule.component';
+import { MasterScheduleComponent } from './components/master-schedule/master-schedule.component';
+import { ClientScheduleComponent } from './components/client-schedule/client-schedule.component';
+import { MasterDialogComponent } from './components/master-dialog/master-dialog.component';
+import { BookingDialogComponent } from './components/booking-dialog/booking-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -28,7 +37,13 @@ import { MastersComponent } from './components/masters/masters.component';
 		RegisterComponent,
 		HomeComponent,
 		ScheduleComponent,
-		MastersComponent
+		MastersComponent,
+		SettingsComponent,
+		AdminScheduleComponent,
+		MasterScheduleComponent,
+		ClientScheduleComponent,
+		MasterDialogComponent,
+		BookingDialogComponent
 	],
 	imports: [
 		BrowserModule,
@@ -42,9 +57,18 @@ import { MastersComponent } from './components/masters/masters.component';
 		MatIconModule,
 		MatCardModule,
 		MatInputModule,
-		HttpClientModule
+		HttpClientModule,
+		MatDialogModule,
+		MatSelectModule,
+		MatInputModule,
+		MatFormFieldModule
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	entryComponents: [
+		MasterDialogComponent,
+		AdminScheduleComponent,
+		ClientScheduleComponent
+	]
 })
 export class AppModule { }

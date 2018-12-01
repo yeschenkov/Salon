@@ -90,6 +90,14 @@ export class AuthenticationService {
 	public httpPost(url: string, body: Object) {
 		return this.http.post(url, body, { headers: { Authorization: `Bearer ${this.getToken()}` } });
 	}
+	public httpPut(url: string, id: string, body: Object) {
+		const putUrl = `${url}/${id}`;
+		return this.http.put(putUrl, body, { headers: { Authorization: `Bearer ${this.getToken()}` } });
+	}
+	public httpDelete(url: string, id: string) {
+		const deleteUrl = `${url}/${id}`;
+		return this.http.delete(deleteUrl, { headers: { Authorization: `Bearer ${this.getToken()}` } });
+	}
 	public register(user: TokenPayload): Observable<any> {
 		return this.request('post', 'register', user);
 	}

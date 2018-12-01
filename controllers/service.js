@@ -5,7 +5,14 @@ const Role = require('../models').Role;
 module.exports = {
 	getAll(req, res) {
 		return Service
-			.findAll()
+			.findAll({
+				include: [
+					{
+						model: User,
+						attrubutes: ['Name', 'Phone']
+					}
+				]
+			})
 			.then((services) => res.status(200).send(services))
 			.catch((error) => { res.status(400).send(error); });
 	},
@@ -55,8 +62,8 @@ module.exports = {
 			.then((service) => {
 				Role.find({ where: { Name: 'Master' } }).then(role => {
 					User.findById(service.UserId).then(user => {
-						user.update({ RoleId: role.id});
-					});
+						user.update({ RoleId: role.Id});
+					}).then(user => console.log(user));
 				});
 				return service;
 			})

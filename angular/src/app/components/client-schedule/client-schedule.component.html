@@ -1,0 +1,58 @@
+<main class="row appointment-grid no-gutters">
+	<div class="col-md-6 pr-3">
+		<button mat-stroked-button color="primary" class="button-custom button-add width-full">
+			+ Добавить запись</button>
+		<ng-container *ngFor="let booking of (bookings | async); let i = index">
+			<mat-card class="appointment" *ngIf="i % 2 === 0">
+				<div class="media">
+					<img class="align-self-start" src="assets/photo.png">
+					<div class="media-body">
+						<div class="info-header">Гелевый маникюр</div>
+						<div class="info-secondary">Вторник, 14:30</div>
+					</div>
+				</div>
+				<div class="info-text">
+					Практикую маникюр 8 лет.
+					Aenean lacinia bibendum nulla sed consectetur.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="info-phone">
+					<mat-icon class="align-self-start">phone</mat-icon>
+					Светлана, +380999999999
+					<hr class="info-divider">
+				</div>
+				<div>
+					<button mat-button color="primary" class="button-custom button-action">Изменить</button>
+					<button mat-button color="primary" class="button-custom button-action">Отменить</button>
+				</div>
+			</mat-card>
+		</ng-container>
+	</div>
+	<div class="col-md-6">
+		<ng-container *ngFor="let booking of (bookings | async); let i = index">
+			<mat-card class="appointment" *ngIf="i % 2 === 0">
+				<div class="media">
+					<img class="align-self-start" src="assets/photo.png">
+					<div class="media-body">
+						<div class="info-header">Гелевый маникюр</div>
+						<div class="info-secondary">Вторник, 14:30</div>
+					</div>
+				</div>
+				<div class="info-text">
+					Практикую маникюр 8 лет.
+					Aenean lacinia bibendum nulla sed consectetur.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="info-phone">
+					<mat-icon class="align-self-start">phone</mat-icon>
+					Светлана, +380999999999
+					<hr class="info-divider">
+				</div>
+				<div>
+					<button mat-button color="primary" class="button-custom button-action">Изменить</button>
+					<button mat-button color="primary" class="button-custom button-action">Отменить</button>
+				</div>
+			</mat-card>
+		</ng-container>
+	</div>
+</main>
