@@ -1,3 +1,25 @@
-<p>
-  booking-dialog works!
-</p>
+<div class="modal-header row">
+	<div class="col text-center create-title">Выбор процедуры</div>
+</div>
+<div class="modal-body">
+	<div class="row">
+		<mat-form-field>
+			<mat-select placeholder="Выберите процедуру" [(ngModel)]="booking.ServiceId">
+				<mat-option *ngFor="let service of services" [value]="service.Id"> {{ service.Name }}: {{service.User?.Name}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="row radio-header">
+		<div class="col-12 text-center create-title">Выбор даты и времени</div>
+	</div>
+	<div class="row">
+		<mat-form-field>
+			<input matInput type="text" [(ngModel)]="booking.DateFrom" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1">
+		</mat-form-field>
+		<owl-date-time #dt1 [stepMinute]="30" [startAt]="initialTimeValue"></owl-date-time>
+	</div>
+	<mat-dialog-actions>
+		<button mat-button color="primary" class="button-custom button-action" (click)="save()">Сохранить</button>
+		<button mat-button color="primary" class="button-custom button-action" (click)="close()">Отменить</button>
+	</mat-dialog-actions>
+</div>

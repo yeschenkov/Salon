@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
 	MatToolbarModule,
@@ -15,7 +15,9 @@ import {
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import locale from '@angular/common/locales/ru';
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -30,6 +32,7 @@ import { ClientScheduleComponent } from './components/client-schedule/client-sch
 import { MasterDialogComponent } from './components/master-dialog/master-dialog.component';
 import { BookingDialogComponent } from './components/booking-dialog/booking-dialog.component';
 
+registerLocaleData(locale);
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -61,14 +64,19 @@ import { BookingDialogComponent } from './components/booking-dialog/booking-dial
 		MatDialogModule,
 		MatSelectModule,
 		MatInputModule,
-		MatFormFieldModule
+		MatFormFieldModule,
+		OwlDateTimeModule,
+		OwlNativeDateTimeModule,
 	],
-	providers: [],
+	providers: [
+		{ provide: LOCALE_ID, useValue: 'ru' },
+	],
 	bootstrap: [AppComponent],
 	entryComponents: [
 		MasterDialogComponent,
 		AdminScheduleComponent,
-		ClientScheduleComponent
+		ClientScheduleComponent,
+		BookingDialogComponent
 	]
 })
 export class AppModule { }

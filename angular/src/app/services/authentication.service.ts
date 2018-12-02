@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export interface UserDetails {
-	_id: string;
+	id: string;
 	phone: string;
 	name: string;
 	roleName: string;

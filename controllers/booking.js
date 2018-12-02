@@ -1,5 +1,6 @@
 const Booking = require('../models').Booking;
 const Service = require('../models').Service;
+const User = require('../models').User;
 module.exports = {
 	getAll(req, res) {
 		if (!req.payload.id) {
@@ -7,14 +8,31 @@ module.exports = {
 				"message": "UnauthorizedError: private profile"
 			});
 		} else {
-			const filter = {};
+			const filter = {
+				include: [{
+					model: Service,
+					include: [
+						{
+							model: User,
+							attributes: ['Name', 'Phone']
+						}
+					]
+				}
+				]
+			};
 			if (!req.payload.roleName) {
 				filter.where = { UserId: req.payload.id };
 			} else if (req.payload.roleName === 'Master') {
 				filter.include = [{
 					model: Service,
 					where: { UserId: req.payload.id },
-					required: true
+					required: true,
+					include: [
+						{
+							model: User,
+							attributes: ['Name', 'Phone']
+						}
+					]
 				}];
 			}
 			return Booking
