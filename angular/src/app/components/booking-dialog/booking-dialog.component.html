@@ -18,6 +18,18 @@
 		</mat-form-field>
 		<owl-date-time #dt1 [stepMinute]="30" [startAt]="initialTimeValue"></owl-date-time>
 	</div>
+	<ng-container *ngIf="userDetails.roleName">
+		<div class="row radio-header">
+			<div class="col-12 text-center create-title">Выбор клиента</div>
+		</div>
+		<div class="row">
+			<mat-form-field>
+				<mat-select placeholder="Выберите процедуру" [(ngModel)]="booking.UserId">
+					<mat-option *ngFor="let user of users" [value]="user.Id"> {{ user.Name}}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</ng-container>
 	<mat-dialog-actions>
 		<button mat-button color="primary" class="button-custom button-action" (click)="save()">Сохранить</button>
 		<button mat-button color="primary" class="button-custom button-action" (click)="close()">Отменить</button>

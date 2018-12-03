@@ -6,6 +6,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { HomeComponent } from './components/home/home.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { MastersComponent } from './components/masters/masters.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
 	{
@@ -33,6 +34,10 @@ const routes: Routes = [
 			{
 				path: 'masters',
 				component: MastersComponent
+			},
+			{
+				path: 'settings',
+				component: SettingsComponent
 			}
 		]
 	},

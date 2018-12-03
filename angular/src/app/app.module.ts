@@ -16,8 +16,11 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import locale from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -67,6 +70,11 @@ registerLocaleData(locale);
 		MatFormFieldModule,
 		OwlDateTimeModule,
 		OwlNativeDateTimeModule,
+		CalendarModule.forRoot({
+			provide: DateAdapter,
+			useFactory: adapterFactory
+		})
+
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'ru' },

@@ -1,3 +1,44 @@
-<p>
-  settings works!
-</p>
+<div class="row">
+	<div class="col-md-6 offset-md-3">
+		<div class="appointment">
+			<div class="media">
+				<img class="align-self-start photo-settings" alt="Generic placeholder image" src="assets/photo.png">
+				<div class="media-body info-change-photo">
+					<div class="info-header">{{userDetails.name}}</div>
+					<button mat-button class="button-custom button-change-photo">Изменить фото</button>
+				</div>
+			</div>
+			<hr>
+			<fieldset class="border p-2">
+				<legend class="w-auto field-name">Телефон</legend>
+				<mat-form-field>
+					<input matInput class="field-input" type="text" readonly="" [value]="userDetails.phone">
+				</mat-form-field>
+			</fieldset>
+		</div>
+		<form class="appointment custom-form">
+			<div class="info-header">Изменение пароля</div>
+			<fieldset class="border p-2 field-set">
+				<legend class="w-auto field-name">Текущий пароль</legend>
+				<div class="input-group field-input">
+					<mat-form-field>
+						<input matInput  aria-label="Текущий пароль"
+						 type="password" readonly="" value="123456">
+					</mat-form-field>
+				</div>
+			</fieldset>
+			<fieldset class="border p-2 field-set">
+				<legend class="w-auto field-name">Новый пароль</legend>
+				<div class="input-group field-input">
+					<mat-form-field>
+						<input matInput class="form-control field-input" aria-describedby="new-password" aria-label="Текущий пароль" type="password">
+					</mat-form-field>
+					<div class="input-group-append">
+
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<button mat-raised-button color="primary" class="button-save width-full">СОХРАНИТЬ</button>
+	</div>
+</div>

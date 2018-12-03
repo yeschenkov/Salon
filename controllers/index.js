@@ -22,10 +22,10 @@ router.get('/roles', auth, roleController.getAll);
 router.get('/users', userController.getAll);
 router.get('/users/:id', userController.getById);
 router.put('/users/:id', userController.update);
-
+router.get('/usersonly', userController.getAllUsers);
 // services
 
-router.get('/services', serviceController.getAll);
+router.get('/services', auth, serviceController.getAll);
 router.get('/services/:id', serviceController.getById);
 router.put('/services/:id', serviceController.update);
 router.delete('/services/:id', serviceController.delete);

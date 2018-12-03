@@ -6,6 +6,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Booking } from 'src/app/models/booking';
 import { BookingService } from 'src/app/services/booking.service';
 import { UserDetails, AuthenticationService } from 'src/app/services/authentication.service';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
 	selector: 'app-booking-dialog',
@@ -18,11 +20,13 @@ export class BookingDialogComponent implements OnInit {
 	public booking: Booking;
 	public initialTimeValue: Date;
 	public userDetails: UserDetails;
+	public users: User[] = [];
 	constructor(
 		private masterService: MasterService,
 		private bookingService: BookingService,
 		public dialogRef: MatDialogRef<BookingDialogComponent>,
 		public auth: AuthenticationService,
+		public userService: UserService,
 		@Inject(MAT_DIALOG_DATA) public data
 	) {
 		this.services = [];
@@ -30,6 +34,9 @@ export class BookingDialogComponent implements OnInit {
 		const currentDate = new Date();
 		this.userDetails = this.auth.getUserDetails();
 		this.initialTimeValue = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 9, 0);
+		if (this.userDetails.roleName) {
+			this.userService.getOnlyUsers().subscribe(users => { this.users = users; });
+		}
 	}
 
 	ngOnInit() {

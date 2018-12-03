@@ -38,5 +38,5 @@ app.use(function (err, req, res, next) {
 	}
 });
 db.sequelize.sync().then(() => {
-	app.listen(3000);
+	app.listen(8080);
 });

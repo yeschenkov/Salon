@@ -1,5 +1,5 @@
 const User = require('../models').User;
-
+const Role = require('../models').Role;
 module.exports = {
 	getAll(req, res) {
 		return User
@@ -42,5 +42,19 @@ module.exports = {
 					.catch((error) => res.status(400).send(error));
 			})
 			.catch((error) => res.status(400).send(error));
+	},
+
+	// custom
+
+	getAllUsers(req, res) {
+		return User
+			.findAll({
+					attributes: ['Name', 'Id'],
+					where: {
+						RoleId: null
+					}
+			})
+			.then((users) => res.status(200).send(users))
+			.catch((error) => { res.status(400).send(error); });
 	},
 };
