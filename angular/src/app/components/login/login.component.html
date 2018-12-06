@@ -8,6 +8,7 @@
 			<mat-form-field>
 				<input matInput placeholder="Password" [(ngModel)]="credentials.password" type="password" name="password" required>
 			</mat-form-field>
+			<mat-error *ngIf="!isOk">Вы ввели неправильный логин или пароль</mat-error>
 		</form>
 	</mat-card-content>
 	<mat-card-actions>

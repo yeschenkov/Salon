@@ -58,7 +58,7 @@ export class AdminScheduleComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
-
+			this.updateBookings();
 		});
 	}
 	deleteBooking(booking: Booking) {

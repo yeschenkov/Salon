@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
 	selector: 'app-login',
@@ -13,16 +15,24 @@ export class LoginComponent implements OnInit {
 		phone: '',
 		password: ''
 	};
-	constructor(private auth: AuthenticationService, private router: Router) { }
+	public isOk: boolean;
+	constructor(private auth: AuthenticationService, private router: Router) {
+		this.isOk = true;
+	}
 
 	ngOnInit() {
 	}
 
 	login() {
-		this.auth.login(this.credentials).subscribe(() => {
-			this.router.navigateByUrl('/home');
-		}, (err) => {
-			console.error(err);
-		});
+		this.auth.login(this.credentials).pipe(
+			map(() => {
+				this.isOk = true;
+				this.router.navigateByUrl('/home');
+			}),
+			catchError((err) => {
+				this.isOk = false;
+				return of(err);
+			})
+		).subscribe();
 	}
 }

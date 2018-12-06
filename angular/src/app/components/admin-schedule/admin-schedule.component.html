@@ -3,14 +3,14 @@
 		<div class="row text-center">
 			<div class="col-md-4">
 				<div class="btn-group">
-					<div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (click)="refresh(viewDate)">
-						Предыдущий
+					<div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" >
+						<
 					</div>
-					<div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate" (click)="refresh(viewDate)">
+					<div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
 						Сегодня
 					</div>
-					<div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (click)="refresh(viewDate)">
-						Следующий
+					<div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" >
+						>
 					</div>
 				</div>
 			</div>

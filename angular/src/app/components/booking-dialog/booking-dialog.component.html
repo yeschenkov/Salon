@@ -24,7 +24,7 @@
 		</div>
 		<div class="row">
 			<mat-form-field>
-				<mat-select placeholder="Выберите процедуру" [(ngModel)]="booking.UserId">
+				<mat-select placeholder="Выберите клиента" [(ngModel)]="booking.UserId">
 					<mat-option *ngFor="let user of users" [value]="user.Id"> {{ user.Name}}</mat-option>
 				</mat-select>
 			</mat-form-field>

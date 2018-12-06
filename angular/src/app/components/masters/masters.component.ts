@@ -14,7 +14,7 @@ export class MastersComponent implements OnInit {
 
 	public masters: Observable<Array<Service>>;
 	constructor(public dialog: MatDialog, private masterService: MasterService) {
-		this.masters = this.masterService.getAll();
+		this.resetMasters();
 	}
 
 	ngOnInit() {
@@ -29,10 +29,14 @@ export class MastersComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
-
+			this.resetMasters();
 		});
 	}
 	deleteMaster(master: Service) {
 		this.masterService.delete(master.Id).subscribe();
+	}
+
+	public resetMasters() {
+		this.masters = this.masterService.getAll();
 	}
 }

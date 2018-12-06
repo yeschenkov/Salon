@@ -14,12 +14,14 @@ export class ClientScheduleComponent implements OnInit {
 
 	public bookings: Observable<Booking[]>;
 	constructor(private bookingService: BookingService, public dialog: MatDialog) {
-		this.bookings = this.bookingService.getAll();
+		this.resetBookings();
 	}
 
 	ngOnInit() {
 	}
-
+	private resetBookings() {
+		this.bookings = this.bookingService.getAll();
+	}
 	openDialog(booking?: Booking) {
 		const dialogRef = this.dialog.open(BookingDialogComponent, {
 			width: '500px',
@@ -29,7 +31,7 @@ export class ClientScheduleComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
-
+			this.resetBookings();
 		});
 	}
 	deleteBooking(booking: Booking) {

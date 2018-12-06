@@ -4,7 +4,7 @@
 			+ Добавить мастера</button>
 		<mat-card *ngFor="let master of (masters | async)">
 			<div class="media">
-				<img class="align-self-start" src="assets/image-placeholder.png">
+				<img class="align-self-start" src="assets/photo.png">
 				<div class="media-body">
 					<div class="info-header">{{master['User'].Name }}: {{ master.Name}}</div>
 					<div class="info-secondary">{{master['User'].Phone }}</div>
